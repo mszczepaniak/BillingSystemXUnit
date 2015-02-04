@@ -1,1 +1,9 @@
 c:\users\michal\documents\visual studio 2013\Projects\BillingSystem\BillingSystem\bin\Debug\BillingSystem.exe.config
+c:\users\michal\documents\visual studio 2013\Projects\BillingSystem\BillingSystem\bin\Debug\BillingSystem.exe
+c:\users\michal\documents\visual studio 2013\Projects\BillingSystem\BillingSystem\bin\Debug\BillingSystem.pdb
+c:\users\michal\documents\visual studio 2013\Projects\BillingSystem\BillingSystem\obj\Debug\BillingSystem.csprojResolveAssemblyReference.cache
+c:\users\michal\documents\visual studio 2013\Projects\BillingSystem\BillingSystem\obj\Debug\BillingSystem.exe
+c:\users\michal\documents\visual studio 2013\Projects\BillingSystem\BillingSystem\obj\Debug\BillingSystem.pdb
+C:\Users\Michal\documents\visual studio 2013\Projects\BillingSystem\BillingSystem\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\Users\Michal\documents\visual studio 2013\Projects\BillingSystem\BillingSystem\bin\Debug\xunit.runner.utility.desktop.dll
+C:\Users\Michal\documents\visual studio 2013\Projects\BillingSystem\BillingSystem\bin\Debug\xunit.abstractions.dll

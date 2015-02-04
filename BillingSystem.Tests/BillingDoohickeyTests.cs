@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using System;
+using Moq;
 using Xunit;
 
 namespace BillingSystem.Tests
@@ -12,14 +13,20 @@ namespace BillingSystem.Tests
             // Service for charging customers
             var repo = new Mock<ICustomerRepository>();
             var charger = new Mock<ICreditCardCharger>();
-            var customer = new Customer();
+            var customer = new Customer(); // what does it mean to not have a subscription
 
-            BillingDoohickey thing = new BillingDoohickey(repo, charger);
+            var thing = new BillingDoohickey(repo.Object, charger.Object);
 
             thing.ProcessMonth(2011, 8);
 
-            charger.Verify(c => c.ChargeCustomer(customer), Times.Never);
-            //
+            charger.Verify(c => c.ChargeCustomer(customer), Times.Never());
+            
+        }
+
+        [Fact]
+        public void CustomerWithSubscriptionThatIsExpiredGetsCharged()
+        {
+            
         }
         // Monthly billing
         // Grace period for missed payments ("dunning" status)
@@ -34,7 +41,7 @@ namespace BillingSystem.Tests
 
     public interface ICreditCardCharger
     {
-        
+        void ChargeCustomer(Customer customer);
     }
 
     public class Customer
@@ -52,6 +59,10 @@ namespace BillingSystem.Tests
 
             this.repo = repo;
             this.charger = charger;
+        }
+
+        public void ProcessMonth(int year, int month)
+        {
         }
     }
 }
