@@ -51,13 +51,14 @@ namespace BillingSystem.Tests
         // Grace period for missed payments ("dunning" status)
         // Not all customers are necessarily subscribers
         // Idle customers should be automatically unsubscribed
-        private BillingProcessor CreateBillingProcessor(Customer customer)
+        private TestableBillingProcessor CreateBillingProcessor(Customer customer)
         {
             var repo = new Mock<ICustomerRepository>();
             var charger = new Mock<ICreditCardCharger>();
             repo.Setup(r => r.Customers)
                 .Returns(new Customer[] { customer });
             var processor = new BillingProcessor(repo.Object, charger.Object);
+
 
             return processor;
         }
@@ -97,6 +98,17 @@ namespace BillingSystem.Tests
             {
                 charger.ChargeCustomer(customer);
             }
+        }
+    }
+
+    public class TestableBillingProcessor : BillingProcessor
+    {
+        public Mock<ICreditCardCharger> Charger;
+        public Mock<ICustomerRepository> Repository;
+        public TestableBillingProcessor()
+        {
+            Charger = new Mock<ICreditCardCharger>();
+            Repository = new Mock<ICustomerRepository>();
         }
     }
 }
