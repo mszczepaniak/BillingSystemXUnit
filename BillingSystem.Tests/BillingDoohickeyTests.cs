@@ -59,7 +59,6 @@ namespace BillingSystem.Tests
                 .Returns(new Customer[] { customer });
             var processor = new BillingProcessor(repo.Object, charger.Object);
 
-
             return processor;
         }
     }
