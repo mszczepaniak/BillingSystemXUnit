@@ -53,6 +53,7 @@ namespace BillingSystem.Tests
         // Idle customers should be automatically unsubscribed
         private TestableBillingProcessor CreateBillingProcessor(Customer customer)
         {
+
             var repo = new Mock<ICustomerRepository>();
             var charger = new Mock<ICreditCardCharger>();
             repo.Setup(r => r.Customers)
