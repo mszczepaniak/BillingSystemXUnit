@@ -55,7 +55,7 @@ namespace BillingSystem.Tests
         {
 
             var repo = new Mock<ICustomerRepository>();
-            var charger = new Mock<ICreditCardCharger>();
+            var charger   = new Mock<ICreditCardCharger>();
             repo.Setup(r => r.Customers)
                 .Returns(new Customer[] { customer });
             var processor = new BillingProcessor(repo.Object, charger.Object);
